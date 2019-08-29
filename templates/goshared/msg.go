@@ -6,17 +6,39 @@ const msgTpl = `
 {{- else -}}
 	{{ cmt "Validate checks the field values on " (msgTyp .) " with the rules defined in the proto definition for this message. If any rules are violated, an error is returned." }}
 {{- end -}}
-func (m {{ (msgTyp .).Pointer }}) Validate() error {
+func (m {{ (msgTyp .).Pointer }}) Validate(_fields ...string) error {
 	{{ if disabled . -}}
 		return nil
 	{{ else -}}
-		if m == nil { return nil }
+		if m == nil {
+			return {{ errname . }}{
+				field: ".",
+				reason: "{{ name . }} cannot be null",
+			}
+		}
+
+		_noFields := true
+	
+		_mp := make(map[string]bool, len(_fields))
+		_nextLevelFields := make(map[string][]string, len(_fields))
+	
+		for _, f := range _fields {
+			_noFields = false
+	
+			fs := strings.Split(f, ".")
+			_mp[fs[0]] = true
+	
+			_nextLevelFields[fs[0]] = fs[1:]
+		}
 
 		{{ range .NonOneOfFields }}
+		if _noFields || _mp["{{ (name .).LowerSnakeCase }}"] {
 			{{ render (context .) }}
+		}
 		{{ end }}
 
 		{{ range .OneOfs }}
+		if _noFields || _mp["{{ (name .).LowerSnakeCase }}"] {
 			switch m.{{ name . }}.(type) {
 				{{ range .Fields }}
 					case {{ oneof . }}:
@@ -30,6 +52,7 @@ func (m {{ (msgTyp .).Pointer }}) Validate() error {
 						}
 				{{ end }}
 			}
+		}
 		{{ end }}
 
 		return nil
