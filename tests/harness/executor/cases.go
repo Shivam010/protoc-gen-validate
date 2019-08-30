@@ -5,8 +5,8 @@ import (
 
 	"time"
 
-	cases "github.com/envoyproxy/protoc-gen-validate/tests/harness/cases/go"
-	other_package "github.com/envoyproxy/protoc-gen-validate/tests/harness/cases/other_package/go"
+	cases "github.com/Shivam010/protoc-gen-validate/tests/harness/cases/go"
+	other_package "github.com/Shivam010/protoc-gen-validate/tests/harness/cases/other_package/go"
 	"github.com/golang/protobuf/proto"
 	"github.com/golang/protobuf/ptypes"
 	"github.com/golang/protobuf/ptypes/any"

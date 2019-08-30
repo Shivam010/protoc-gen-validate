@@ -6,12 +6,12 @@ import (
 	"time"
 	"unicode/utf8"
 
+	"github.com/Shivam010/protoc-gen-validate/validate"
 	"github.com/golang/protobuf/proto"
 	"github.com/golang/protobuf/ptypes"
 	"github.com/golang/protobuf/ptypes/duration"
 	"github.com/golang/protobuf/ptypes/timestamp"
 	"github.com/lyft/protoc-gen-star"
-	"github.com/envoyproxy/protoc-gen-validate/validate"
 )
 
 type FieldType interface {
@@ -463,4 +463,3 @@ func (m *Module) checkTS(ts *timestamp.Timestamp) *int64 {
 	m.CheckErr(err, "could not resolve timestamp")
 	return proto.Int64(t.UnixNano())
 }
-

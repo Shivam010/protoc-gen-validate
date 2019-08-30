@@ -5,11 +5,11 @@ import (
 	"log"
 	"os"
 
+	_ "github.com/Shivam010/protoc-gen-validate/tests/harness/cases/go"
+	_ "github.com/Shivam010/protoc-gen-validate/tests/harness/cases/other_package/go"
+	harness "github.com/Shivam010/protoc-gen-validate/tests/harness/go"
 	"github.com/golang/protobuf/proto"
 	"github.com/golang/protobuf/ptypes"
-	_ "github.com/envoyproxy/protoc-gen-validate/tests/harness/cases/go"
-	_ "github.com/envoyproxy/protoc-gen-validate/tests/harness/cases/other_package/go"
-	harness "github.com/envoyproxy/protoc-gen-validate/tests/harness/go"
 )
 
 func main() {

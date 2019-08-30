@@ -3,8 +3,8 @@ package golang
 import (
 	"text/template"
 
+	"github.com/Shivam010/protoc-gen-validate/templates/goshared"
 	"github.com/lyft/protoc-gen-star"
-	"github.com/envoyproxy/protoc-gen-validate/templates/goshared"
 )
 
 func Register(tpl *template.Template, params pgs.Parameters) {

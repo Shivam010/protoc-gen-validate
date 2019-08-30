@@ -5,7 +5,7 @@ import (
 
 	"github.com/lyft/protoc-gen-star"
 
-	shared "github.com/envoyproxy/protoc-gen-validate/templates/goshared"
+	shared "github.com/Shivam010/protoc-gen-validate/templates/goshared"
 )
 
 func Register(tpl *template.Template, params pgs.Parameters) {

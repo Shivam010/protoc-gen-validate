@@ -5,11 +5,11 @@ import (
 	"log"
 	"os"
 
+	_ "github.com/Shivam010/protoc-gen-validate/tests/harness/cases/gogo"
+	_ "github.com/Shivam010/protoc-gen-validate/tests/harness/cases/other_package/gogo"
+	harness "github.com/Shivam010/protoc-gen-validate/tests/harness/gogo"
 	"github.com/gogo/protobuf/proto"
 	"github.com/gogo/protobuf/types"
-	_ "github.com/envoyproxy/protoc-gen-validate/tests/harness/cases/gogo"
-	_ "github.com/envoyproxy/protoc-gen-validate/tests/harness/cases/other_package/gogo"
-	harness "github.com/envoyproxy/protoc-gen-validate/tests/harness/gogo"
 )
 
 func main() {
