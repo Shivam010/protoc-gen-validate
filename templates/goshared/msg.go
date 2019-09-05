@@ -10,12 +10,7 @@ func (m {{ (msgTyp .).Pointer }}) Validate(_fields ...string) error {
 	{{ if disabled . -}}
 		return nil
 	{{ else -}}
-		if m == nil {
-			return {{ errname . }}{
-				field: ".",
-				reason: "{{ name . }} cannot be null",
-			}
-		}
+		if m == nil { return nil }
 
 		_noFields := true
 	
