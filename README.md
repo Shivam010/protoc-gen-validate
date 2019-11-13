@@ -1,9 +1,6 @@
 # protoc-gen-validate (PGV)
 
-> **NOTE**: This is a fork of `envoyproxy/protoc-gen-validate`, which modifies the `Validate()` method for GoLang - `lang=go` to accepts field_mask slice - `Validate(...string)`, to give the functionality of using the same method for validating only some specified fields. 
-<br>
-If no field_mask value is provided the method will work as usually and will validate all fields.
-
+> **NOTE**: This is a fork of `envoyproxy/protoc-gen-validate`, which modifies the `Validate()` method for GoLang - `lang=go` to accepts field_mask slice - `Validate(...string)`, to give the functionality of using the same method for validating only some specified fields. If no field_mask value is provided the method will work as usually and will validate all fields.
 
 *This project is currently in **alpha**. The API should be considered unstable and likely to change*
 
