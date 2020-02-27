@@ -20,7 +20,7 @@ func (m {{ (msgTyp .).Pointer }}) Validate(_fields ...string) error {
 		for _, f := range _fields {
 			_noFields = false
 	
-			fs := strings.Split(f, ".")
+			fs := strings.SplitN(f, ".", 2)
 			_mp[fs[0]] = true
 	
 			_nextLevelFields[fs[0]] = fs[1:]
