@@ -13,6 +13,7 @@ func (m {{ (msgTyp .).Pointer }}) Validate(_fields ...string) error {
 		if m == nil { return nil }
 
 		_noFields := true
+		_ = _noFields
 	
 		_mp := make(map[string]bool, len(_fields))
 		_nextLevelFields := make(map[string][]string, len(_fields))
