@@ -13,6 +13,7 @@ func (m {{ (msgTyp .).Pointer }}) Validate(_fields ...string) error {
 		if m == nil { return nil }
 
 		_noFields := true
+		_ = _noFields
 	
 		_mp := make(map[string]bool, len(_fields))
 		_nextLevelFields := make(map[string][]string, len(_fields))
@@ -20,7 +21,7 @@ func (m {{ (msgTyp .).Pointer }}) Validate(_fields ...string) error {
 		for _, f := range _fields {
 			_noFields = false
 	
-			fs := strings.Split(f, ".")
+			fs := strings.SplitN(f, ".", 2)
 			_mp[fs[0]] = true
 	
 			_nextLevelFields[fs[0]] = fs[1:]

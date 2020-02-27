@@ -4,6 +4,14 @@
 
 *This project is currently in **alpha**. The API should be considered unstable and likely to change*
 
+protoc-gen-validate generates object validators based on the constraint rules specified in the protobuf field options. 
+
+The static validations like certain field is a required field, a string must be an email, the length of a text must in certain range etc, such restrictions can be easily tagged in protobuf files and these corresponding conditions can be checked by calling the `Validate(...string) error` method generated for the object.
+
+The validate method accepts the slice of field_masks of the fields for which the validations are required to be checked. If no field_mask value is provided the method will work as usually and will validate all fields.
+
+For more validation rules follow: [link](https://github.com/Shivam010/protoc-gen-validate/blob/master/README.md#constraint-rules)
+
 PGV is a protoc plugin to generate polyglot message validators. While protocol buffers effectively guarantee the types of structured data, they cannot enforce semantic rules for values. This plugin adds support to protoc-generated code to validate such constraints.
 
 Developers import the PGV extension and annotate the messages and fields in their proto files with constraint rules:
